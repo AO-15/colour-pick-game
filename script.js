@@ -5,6 +5,7 @@ const resetButton = document.querySelector("#resetButton");
 const startButton = document.querySelector("#startButton");
 const scoreDisplay = document.querySelector("#score");
 const rules = document.querySelector(".rules")
+const options = optionsContainer.querySelectorAll(".option");
 
 const colours = [
   "red",
