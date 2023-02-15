@@ -1,0 +1,99 @@
+body {
+    background-color: #D3D3D3;
+    font-size: 16px;
+  }
+  
+  #colourDisplay {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  #optionsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .option {
+    width: 45%;
+    padding: .5rem;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    margin: .5rem;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  #timer {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .buttonsContainer {
+    text-align: center;
+  }
+  
+  button {
+    padding: .5rem 1rem;
+    background-color: #D3D3D3;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: .5rem;
+  }
+
+  #score {
+    font-size: 20px;
+    text-align: center;
+    margin: 1rem auto;
+  }
+
+  .rules {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .rules h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .rules ol {
+    display: inline-block;
+    text-align: left;
+}
+  
+  .rules li {
+    margin-bottom: 1rem;
+  }
+  
+  
+  .rules p {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  
+  @media (max-width: 767px) {
+    .rules ol {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .option {
+      width: 90%;
+      margin: 1rem auto;
+    }
+    .rules {
+        max-width: 90%;
+      }
+  }
