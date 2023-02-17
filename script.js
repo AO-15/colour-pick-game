@@ -4,7 +4,7 @@ const timerDisplay = document.querySelector("#timer");
 const resetButton = document.querySelector("#resetButton");
 const startButton = document.querySelector("#startButton");
 const scoreDisplay = document.querySelector("#score");
-const rules = document.querySelector(".rules")
+const rules = document.querySelector(".rules");
 const options = optionsContainer.querySelectorAll(".option");
 
 const colours = [
@@ -53,7 +53,7 @@ function shuffleArray(array) {
 }
 
 function resetOptions() {
-  const options = optionsContainer.querySelectorAll(".option");
+  // const options = optionsContainer.querySelectorAll(".option");
   let displayColour = colours[getRandomInt(0, colours.length - 1)];
   let colourOptions = [displayColour];
 
@@ -87,22 +87,24 @@ function resetOptions() {
     colourDisplay.textContent = displayColour;
   } else {
     // Else, the colour a random colour that is in the colourOptions should be selected that is NOT the same colour as the displayOption
-    colourDisplay.textContent = displayColour
-    let displayOptionColour = colourOptions.filter(c => c !== displayColour)[getRandomInt(0, 2)];
+    colourDisplay.textContent = displayColour;
+    let displayOptionColour = colourOptions.filter((c) => c !== displayColour)[
+      getRandomInt(0, 2)
+    ];
     colourDisplay.style.color = displayOptionColour;
   }
 }
 
-
 function resetGame() {
   totalQuestions++;
   if (totalQuestions === 16) {
-    alert(`You have finished the game in ${duration} seconds and got ${score}/15!`);
+    alert(
+      `You have finished the game in ${duration} seconds and got ${score}/15!`
+    );
     stopTimer();
     totalQuestions = 0;
     score = 0;
     timerDisplay.textContent = "Duration: 0 seconds";
-    
   }
   scoreDisplay.textContent = `Score: ${score}`;
 }
@@ -116,17 +118,17 @@ startButton.addEventListener("click", function () {
   options.forEach((option) => {
     option.addEventListener("click", function () {
       if (colourDisplay.style.color === option.textContent) {
-        option.style.backgroundColor = 'green';
+        option.style.backgroundColor = "green";
         score++;
         setTimeout(() => {
-          option.style.backgroundColor = '';
+          option.style.backgroundColor = "";
           resetGame();
           resetOptions();
         }, 100);
       } else {
-        option.style.backgroundColor = 'red';
+        option.style.backgroundColor = "red";
         setTimeout(() => {
-          option.style.backgroundColor = '';
+          option.style.backgroundColor = "";
           resetGame();
           resetOptions();
         }, 100);
@@ -140,17 +142,11 @@ resetButton.addEventListener("click", function () {
   totalQuestions = 0;
   score = 0;
   timerDisplay.textContent = "Duration: 0 seconds";
-  colourDisplay.textContent = ""
-  colourDisplay.style.color = ""
+  colourDisplay.textContent = "";
+  colourDisplay.style.color = "";
   colourDisplay.innerHTML = "Display colour";
-  optionsContainer.innerHTML = `
-    <div class="option">Option 1</div>
-    <div class="option">Option 2</div>
-    <div class="option">Option 3</div>
-    <div class="option">Option 4</div>
-  `;
-
+  const optionText = ["Option 1", "Option 2", "Option 3", "Option 4"];
+  options.forEach((option, index) => {
+    option.innerHTML = optionText[index];
+  });
 });
-
-
-
